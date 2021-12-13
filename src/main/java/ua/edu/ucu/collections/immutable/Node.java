@@ -19,7 +19,7 @@ public class Node {
     }
 
     public void setPrevious(Node prev) {
-        previous = prev;
+        this.previous = prev;
     }
 
     public Object getValue() {
@@ -27,7 +27,7 @@ public class Node {
     }
 
     public void setValue(Object val) {
-        value = val;
+        this.value = val;
     }
 
     public Node getNext() {
@@ -35,7 +35,7 @@ public class Node {
     }
 
     public void setNext(Node ne) {
-        next = ne;
+        this.next = ne;
     }
 }
 

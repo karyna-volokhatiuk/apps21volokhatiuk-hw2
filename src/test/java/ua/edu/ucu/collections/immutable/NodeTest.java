@@ -7,28 +7,32 @@ public class NodeTest extends TestCase {
 
     public void setUp() throws Exception {
         super.setUp();
-        Node node1 = new Node();
-        node1.setValue("first_node");
+        node1 = new Node();
+        node1.setValue("node1");
     }
 
     public void testTestToString() {
+        assertEquals("node1", node1.toString());
     }
 
-    public void testGetPrevious() {
+    public void testSetGetPrevious() {
+        Node prev_node = new Node();
+        prev_node.setValue("node0");
+
+        node1.setPrevious(prev_node);
+        assertEquals("node0", node1.getPrevious().getValue());
     }
 
-    public void testSetPrevious() {
+    public void testSetGetValue() {
+        node1.setValue("new_node1");
+        assertEquals("new_node1", node1.getValue());
     }
 
-    public void testGetValue() {
-    }
+    public void testSetGetNext() {
+        Node next_node = new Node();
+        next_node.setValue("node2");
 
-    public void testSetValue() {
-    }
-
-    public void testGetNext() {
-    }
-
-    public void testSetNext() {
+        node1.setNext(next_node);
+        assertEquals("node2", node1.getNext().getValue());
     }
 }
