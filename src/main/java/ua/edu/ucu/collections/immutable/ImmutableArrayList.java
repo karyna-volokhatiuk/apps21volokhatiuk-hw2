@@ -22,7 +22,7 @@ public final class ImmutableArrayList implements ImmutableList {
 
     @Override
     public ImmutableList add(int index, Object e) {
-        if (index >= size){
+        if (index > size){
             throw new IndexOutOfBoundsException("Index out of range.");
         }
 
@@ -48,7 +48,7 @@ public final class ImmutableArrayList implements ImmutableList {
 
     @Override
     public ImmutableList addAll(int index, Object[] c) {
-        if (index >= size){
+        if (index > size){
             throw new IndexOutOfBoundsException("Index out of range.");
         }
 
