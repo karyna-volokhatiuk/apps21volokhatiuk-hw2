@@ -125,10 +125,8 @@ public final class ImmutableLinkedList implements ImmutableList {
         Object[] newElements = new Object[size];
 
         for (int i = 0; i < size; i++) {
-            if (i < index) {
+            if (i != index) {
                 newElements[i] = get(i);
-            } else if (i > index) {
-                newElements[i] = get(i-1);
             } else {
                 newElements[i] = e;
             }
