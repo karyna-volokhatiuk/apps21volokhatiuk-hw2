@@ -3,9 +3,9 @@ package ua.edu.ucu.collections;
 import ua.edu.ucu.collections.immutable.ImmutableLinkedList;
 
 public class Queue {
-    ImmutableLinkedList queue;
+    private ImmutableLinkedList queue;
 
-    public Queue(){
+    public Queue() {
         queue = new ImmutableLinkedList();
     }
 

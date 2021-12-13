@@ -3,9 +3,9 @@ package ua.edu.ucu.collections;
 import ua.edu.ucu.collections.immutable.ImmutableLinkedList;
 
 public class Stack {
-    ImmutableLinkedList stack;
+    private ImmutableLinkedList stack;
 
-    public Stack(){
+    public Stack() {
         stack = new ImmutableLinkedList();
     }
 

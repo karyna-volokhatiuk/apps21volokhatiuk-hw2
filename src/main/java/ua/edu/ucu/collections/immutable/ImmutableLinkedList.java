@@ -16,13 +16,13 @@ public final class ImmutableLinkedList implements ImmutableList {
         this.size = elements.length;
         this.head = new Node();
 
-        if (elements.length == 0){
+        if (elements.length == 0) {
             this.tail = new Node();
         } else {
             head.setValue(elements[0]);
             Node curr = head;
             Node newNode;
-            for (int i = 1; i < size; i++){
+            for (int i = 1; i < size; i++) {
                 newNode = new Node();
                 newNode.setValue(elements[i]);
                 newNode.setPrevious(curr);
@@ -40,22 +40,22 @@ public final class ImmutableLinkedList implements ImmutableList {
 
     @Override
     public ImmutableList add(int index, Object e) {
-        if (index > size){
+        if (index > size) {
             throw new IndexOutOfBoundsException("Index is out of range.");
         }
 
-        Object[] new_elements = new Object[size + 1];
+        Object[] newElements = new Object[size + 1];
 
-        for (int i = 0; i < size + 1; i++){
-            if (i < index){
-                new_elements[i] = get(i);
-            } else if (i == index){
-                new_elements[i] = e;
+        for (int i = 0; i < size + 1; i++) {
+            if (i < index) {
+                newElements[i] = get(i);
+            } else if (i == index) {
+                newElements[i] = e;
             } else {
-                new_elements[i] = get(i-1);
+                newElements[i] = get(i-1);
             }
         }
-        return new ImmutableLinkedList(new_elements);
+        return new ImmutableLinkedList(newElements);
     }
 
     @Override
@@ -65,33 +65,33 @@ public final class ImmutableLinkedList implements ImmutableList {
 
     @Override
     public ImmutableList addAll(int index, Object[] c) {
-        if (index > size){
+        if (index > size) {
             throw new IndexOutOfBoundsException("Index is out of range.");
         }
 
-        Object[] new_elements = new Object[size + c.length];
+        Object[] newElements = new Object[size + c.length];
 
-        for (int i = 0; i < size + c.length; i++){
-            if (i < index){
-                new_elements[i] = get(i);
-            } else if (i < index + c.length){
-                new_elements[i] = c[i - index];
+        for (int i = 0; i < size + c.length; i++) {
+            if (i < index) {
+                newElements[i] = get(i);
+            } else if (i < index + c.length) {
+                newElements[i] = c[i - index];
             } else {
-                new_elements[i] = get(i - c.length);
+                newElements[i] = get(i - c.length);
             }
         }
 
-        return new ImmutableLinkedList(new_elements);
+        return new ImmutableLinkedList(newElements);
     }
 
     @Override
     public Object get(int index) {
-        if (index >= size){
+        if (index >= size) {
             throw new IndexOutOfBoundsException("Index is out of range.");
         }
 
         Node curr = head;
-        for(int i = 0; i < index; i++){
+        for(int i = 0; i < index; i++) {
             curr = curr.getNext();
         }
         return curr.getValue();
@@ -99,48 +99,48 @@ public final class ImmutableLinkedList implements ImmutableList {
 
     @Override
     public ImmutableList remove(int index) {
-        if (index >= size){
+        if (index >= size) {
             throw new IndexOutOfBoundsException("Index is out of range.");
         }
 
-        Object[] new_elements = new Object[size - 1];
+        Object[] newElements = new Object[size - 1];
 
-        for (int i = 0; i < size; i ++){
+        for (int i = 0; i < size; i ++) {
             if (i < index) {
-                new_elements[i] = get(i);
+                newElements[i] = get(i);
             } else if (i > index) {
-                new_elements[i - 1] = get(i);
+                newElements[i - 1] = get(i);
             }
         }
 
-        return new ImmutableLinkedList(new_elements);
+        return new ImmutableLinkedList(newElements);
     }
 
     @Override
     public ImmutableList set(int index, Object e) {
-        if (index >= size){
+        if (index >= size) {
             throw new IndexOutOfBoundsException("Index is out of range.");
         }
 
-        Object[] new_elements = new Object[size];
+        Object[] newElements = new Object[size];
 
-        for (int i = 0; i < size; i ++){
+        for (int i = 0; i < size; i ++) {
             if (i < index) {
-                new_elements[i] = get(i);
+                newElements[i] = get(i);
             } else if (i > index) {
-                new_elements[i] = get(i-1);
+                newElements[i] = get(i-1);
             } else {
-                new_elements[i] = e;
+                newElements[i] = e;
             }
         }
 
-        return new ImmutableLinkedList(new_elements);
+        return new ImmutableLinkedList(newElements);
     }
 
     @Override
     public int indexOf(Object e) {
-        for (int i = 0; i < size; i++){
-            if (get(i) == e){
+        for (int i = 0; i < size; i++) {
+            if (get(i) == e) {
                 return i;
             }
         }
@@ -166,7 +166,7 @@ public final class ImmutableLinkedList implements ImmutableList {
     public Object[] toArray() {
         Object[] elements = new Object[size];
         Node curr = head;
-        for (int i = 0; i < size; i++){
+        for (int i = 0; i < size; i++) {
             elements[i] = curr.getValue();
             curr = curr.getNext();
         }
@@ -174,23 +174,23 @@ public final class ImmutableLinkedList implements ImmutableList {
     }
 
     public ImmutableLinkedList addFirst(Object e) {
-        Object[] new_elements = new Object[size + 1];
-        new_elements[0] = e;
+        Object[] newElements = new Object[size + 1];
+        newElements[0] = e;
         for (int i = 1; i < size + 1; i ++) {
-            new_elements[i] = get(i - 1);
+            newElements[i] = get(i - 1);
         }
-        return new ImmutableLinkedList(new_elements);
+        return new ImmutableLinkedList(newElements);
     }
 
     public ImmutableLinkedList addLast(Object e) {
-        Object[] new_elements = new Object[size + 1];
+        Object[] newElements = new Object[size + 1];
         for (int i = 0; i < size; i ++) {
-            new_elements[i] = get(i);
+            newElements[i] = get(i);
         }
 
-        new_elements[size] = e;
+        newElements[size] = e;
 
-        return new ImmutableLinkedList(new_elements);
+        return new ImmutableLinkedList(newElements);
     }
 
 
@@ -203,40 +203,40 @@ public final class ImmutableLinkedList implements ImmutableList {
     }
 
     public Object getFirst() {
-        if (size < 1){
+        if (size < 1) {
             throw new IndexOutOfBoundsException("Index is out of range.");
         }
         return head.getValue();
     }
 
     public Object getLast() {
-        if (size < 1){
+        if (size < 1) {
             throw new IndexOutOfBoundsException("Index is out of range.");
         }
         return tail.getValue();
     }
 
     public ImmutableLinkedList removeFirst() {
-        if (size < 1){
+        if (size < 1) {
             throw new IndexOutOfBoundsException("Index is out of range.");
         }
 
-        Object[] new_elements = new Object[size-1];
+        Object[] newElements = new Object[size-1];
         for (int i = 1; i < size; i++) {
-            new_elements[i - 1] = get(i);
+            newElements[i - 1] = get(i);
         }
-        return new ImmutableLinkedList(new_elements);
+        return new ImmutableLinkedList(newElements);
     }
 
     public ImmutableLinkedList removeLast() {
-        if (size < 1){
+        if (size < 1) {
             throw new IndexOutOfBoundsException("Index is out of range.");
         }
 
-        Object[] new_elements = new Object[size-1];
+        Object[] newElements = new Object[size-1];
         for (int i = 0; i < size - 1; i ++) {
-            new_elements[i] = get(i);
+            newElements[i] = get(i);
         }
-        return new ImmutableLinkedList(new_elements);
+        return new ImmutableLinkedList(newElements);
     }
 }
