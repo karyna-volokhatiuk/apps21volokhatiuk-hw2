@@ -126,15 +126,47 @@ public class ImmutableLinkedListTest extends TestCase {
         assertEquals(3, list.getFirst());
     }
 
+    public void testGetFirstEmpty() {
+        try {
+            emptyList.getFirst();
+        } catch(IndexOutOfBoundsException exc) {
+            assertEquals("Index is out of range.", exc.getMessage());
+        }
+    }
+
     public void testGetLast() {
         assertEquals("apple", list.getLast());
+    }
+
+    public void testGetLastEmpty() {
+        try {
+            emptyList.getLast();
+        } catch(IndexOutOfBoundsException exc) {
+            assertEquals("Index is out of range.", exc.getMessage());
+        }
     }
 
     public void testRemoveFirst() {
         assertArrayEquals(new Object[]{35.9, "apple"}, list.removeFirst().toArray());
     }
 
+    public void testRemoveFirstEmpty() {
+        try {
+            emptyList.removeFirst();
+        } catch(IndexOutOfBoundsException exc) {
+            assertEquals("Index is out of range.", exc.getMessage());
+        }
+    }
+
     public void testRemoveLast() {
         assertArrayEquals(new Object[]{3, 35.9}, list.removeLast().toArray());
+    }
+
+    public void testRemoveLastEmpty() {
+        try {
+            emptyList.removeLast();
+        } catch(IndexOutOfBoundsException exc) {
+            assertEquals("Index is out of range.", exc.getMessage());
+        }
     }
 }
