@@ -83,7 +83,7 @@ public final class ImmutableArrayList implements ImmutableList {
 
         Object[] newElements = new Object[size - 1];
 
-        for (int i = 0; i < size; i ++) {
+        for (int i = 0; i < size; i++) {
             if (i < index) {
                 newElements[i] = elements[i];
             } else if (i > index) {
@@ -102,7 +102,7 @@ public final class ImmutableArrayList implements ImmutableList {
 
         Object[] newElements = new Object[size];
 
-        for (int i = 0; i < size; i ++) {
+        for (int i = 0; i < size; i++) {
             if (i < index) {
                 newElements[i] = elements[i];
             } else if (i > index) {

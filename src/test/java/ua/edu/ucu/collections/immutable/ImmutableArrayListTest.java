@@ -60,6 +60,7 @@ public class ImmutableArrayListTest extends TestCase {
 
     public void testRemove() {
         assertArrayEquals(new Object[]{35.9, "apple"}, list.remove(0).toArray());
+        assertArrayEquals(new Object[]{3, 35.9}, list.remove(2).toArray());
     }
 
     public void testRemoveIncorrectIndex() {
@@ -72,6 +73,7 @@ public class ImmutableArrayListTest extends TestCase {
 
     public void testSet() {
         assertArrayEquals(new Object[]{3, 35.9, 6}, list.set(2, 6).toArray());
+        assertArrayEquals(new Object[]{6, 35.9, "apple"}, list.set(0, 6).toArray());
     }
 
     public void testSetIncorrectIndex() {

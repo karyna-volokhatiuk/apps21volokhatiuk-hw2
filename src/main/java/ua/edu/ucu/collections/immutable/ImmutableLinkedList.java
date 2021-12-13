@@ -105,7 +105,7 @@ public final class ImmutableLinkedList implements ImmutableList {
 
         Object[] newElements = new Object[size - 1];
 
-        for (int i = 0; i < size; i ++) {
+        for (int i = 0; i < size; i++) {
             if (i < index) {
                 newElements[i] = get(i);
             } else if (i > index) {
@@ -124,7 +124,7 @@ public final class ImmutableLinkedList implements ImmutableList {
 
         Object[] newElements = new Object[size];
 
-        for (int i = 0; i < size; i ++) {
+        for (int i = 0; i < size; i++) {
             if (i < index) {
                 newElements[i] = get(i);
             } else if (i > index) {
@@ -176,7 +176,7 @@ public final class ImmutableLinkedList implements ImmutableList {
     public ImmutableLinkedList addFirst(Object e) {
         Object[] newElements = new Object[size + 1];
         newElements[0] = e;
-        for (int i = 1; i < size + 1; i ++) {
+        for (int i = 1; i < size + 1; i++) {
             newElements[i] = get(i - 1);
         }
         return new ImmutableLinkedList(newElements);
@@ -184,7 +184,7 @@ public final class ImmutableLinkedList implements ImmutableList {
 
     public ImmutableLinkedList addLast(Object e) {
         Object[] newElements = new Object[size + 1];
-        for (int i = 0; i < size; i ++) {
+        for (int i = 0; i < size; i++) {
             newElements[i] = get(i);
         }
 
@@ -234,7 +234,7 @@ public final class ImmutableLinkedList implements ImmutableList {
         }
 
         Object[] newElements = new Object[size-1];
-        for (int i = 0; i < size - 1; i ++) {
+        for (int i = 0; i < size - 1; i++) {
             newElements[i] = get(i);
         }
         return new ImmutableLinkedList(newElements);
